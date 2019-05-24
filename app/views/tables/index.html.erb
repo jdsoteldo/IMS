@@ -1,0 +1,27 @@
+
+  <%= link_to "Create", new_table_path %><br>
+  <%= link_to "Completed IMT", completed_path%><br>
+  <%= link_to "Main Menu", root_path %>
+  <div>------------------------------------------------------------------- </div>
+<% @tables.each do |table| %>
+
+  <div> <%= table.product %> </div>
+  <div> <%= table.description %> </div>
+  <div> <%= table.qty %> </div>
+  <div> <%= table.price %> </div>
+  <div> <%= table.total_price %> </div>
+  <div> <%= table.completed %> </div>
+
+    <%= link_to "Show IMT", table_path(table.id)%><br>
+    <%= link_to 'Update', edit_table_path(table.id) %><br>
+    <%= link_to 'Delete', table_path(table),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %><br>
+
+    <%= form_for table do |f| %>
+    <%= f.hidden_field :completed, value: true %>
+    <%= f.submit "complete",
+        data: { confirm: 'Are you really done?'}%><br>
+<div>------------------------------------------------------------------- </div>
+    <% end %>
+    <% end %>

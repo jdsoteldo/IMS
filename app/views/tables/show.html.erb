@@ -1,0 +1,15 @@
+<h2> Insights</h2>
+
+<ul id="product_table">
+
+  <li> <%= @table.product %></li>
+  <li> <%= @table.description %></li>
+  <li> <%= @table.qty  %></li>
+  <li> <%= @table.price %> </li>
+  <li> <%= @table.total_price %> </li>
+  <li> <%= @table.completed %> </li><br>
+
+  <%= link_to "Edit", edit_table_path %><br>
+  <%= link_to "Go Back", tables_path %><br>
+  <%= link_to "Main Menu", root_path %>
+</ul>
