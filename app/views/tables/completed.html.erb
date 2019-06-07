@@ -15,6 +15,9 @@
 
 
 <%= link_to "Show", table_path(table)%>
+<%= link_to "Delete", table_path(table),
+    method: :delete,
+    data: {confirm: 'Sure you want to delete?'}%>
 
         <div class="completed_line">
 -------------------------------------------------------------------------------

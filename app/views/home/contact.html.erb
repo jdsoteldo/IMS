@@ -9,18 +9,6 @@
 <p> "for inquires email: jd@help.com" </p>
 <p> ---------------------------------------------- </p>
 
-<%= "Luis" %> <%= "Perez" %>
-<p> "for inquires email: luisperez@help.com" </p>
-<p> ---------------------------------------------- </p>
-
-<%= "Carlos" %> <%= "Carrillo" %>
-<p> "for inquires email: carlosc@help.com" </p>
-<p> ---------------------------------------------- </p>
-
-<%= "Leonel" %> <%= "Messi" %>
-<p> "for inquires email: leonel@help.com" </p>
-<p> ---------------------------------------------- </p>
-
 <%= "Mickey" %> <%= "Chaves" %>
 <p> "for inquires email: andres210201@gmail.com" </p>
 <p> ---------------------------------------------- </p>
@@ -30,4 +18,15 @@
 <p> ---------------------------------------------- </p>
 
 
-<%= link_to "Main Menu", root_path %>
+<%= link_to "Go Back", :back %>
+<%= link_to "Main Menu", "home#home" %>
+
+<% if current_user %>
+  <%= link_to 'Sign Out', destroy_user_session_path,
+    method: :delete%><br>
+
+<% else %>
+  <%= link_to 'Sign In', new_user_session_path %><br>
+  <%= link_to 'Sign Up', new_user_registration_path %><br>
+
+<% end %>
