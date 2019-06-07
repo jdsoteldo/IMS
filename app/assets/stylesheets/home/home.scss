@@ -1,9 +1,37 @@
+
+
 #home_title {
-  background-color: #1e3799;
+  background-color: #f000;
+  font-style: italic;
 }
 
-// .home_link{
-//  position: absolute;
-//  right: 40px;
-//  float: right;
-// } mover los links hacia la derecha
+.home_links{
+text-align: right;
+margin-right: 10px;
+color: #000;
+}
+
+.home_links:hoover{
+  box-shadow: #8395a7;
+  font-size: 2em;
+}
+
+.home{
+}
+
+h2{
+  font-style: italic;
+  font-size: 23px;
+  text-align: center;
+}
+
+h3{
+  text-align: center;
+  font-style: italic;
+  font-size: 19px;
+  padding: inherit;
+}
+
+.IMS_home{
+  text-align: center;
+}
