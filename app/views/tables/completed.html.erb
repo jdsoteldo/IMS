@@ -1,11 +1,10 @@
-<h1> Completed IMT's </h1>
+
   <%= link_to "Index", tables_path %><br>
   <%= link_to "Main Menu", root_path %><br>
 
 <div class="completed_line">
-  ----------------------------------------------------------------------------
-</div> <br>
-  <% @tables.each do |table| %>
+  ---------------------------------------------------------------------------- </div>
+<% @tables.each do |table| %>
 
   <%= table.product %><br>
   <%= table.description %><br>
@@ -14,18 +13,12 @@
   <%= table.total_price %><br>
   <%= table.completed %><br>
 
-  <%= link_to 'Edit', edit_table_path(table.id) %><br>
 
-  <%= link_to "Show IMT", table_path(table.id)%><br>
-
-  <%= link_to 'Delete', table_path(chore),
-        method: :delete,
-        data: { confirm: 'Are you sure you want to delete?' }%><br>
-  <%end%>
+<%= link_to "Show", table_path(table)%>
 
         <div class="completed_line">
 -------------------------------------------------------------------------------
          </div>
 
-  <%= link_to "Index", tables_path %><br>
-  <%= link_to "Main Menu", root_path %><br>
+
+  <% end %>
