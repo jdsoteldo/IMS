@@ -44,9 +44,13 @@ class TablesController < ApplicationController
 
 
   def destroy
-    @table.destroy
-
-    redirect_to tables_path, notice: "Template destroyed"
+    if @tables = Table.where(completed: true)
+      @table.destroy
+      redirect_to completed_path, :notice => 'Successfully deleted'
+    elsif @table = Table.where(completed: false)
+      @table.destroy
+      redirect_to table_path, :notice => 'Successfully deleted'
+    end
   end
 
 
