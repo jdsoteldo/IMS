@@ -1,25 +1,33 @@
-<h1 id="home_title"> <%='Hi! We are here to help you improve your business'%> </h1>
-
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+     <link rel="stylesheet" href="home.scss">
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body>
+  <body class="home">
+
+    <u><h2 id="home_title"> <%='IMS'%> </h2></u><br><br>
+
+    <h3>What is IMS?</h3>
+    <p class="IMS_home">IMS stands for Inventory Managstrongent Syststrong, our goal is to make inventory managstrongent
+    as <strong>comfortable</strong>, <strong>easy</strong> and enjoyable as <strong>possible</strong>.<br>
+    </p>
+
 
     <div class='home_links'>
-      <%= link_to "Check your IMT's", tables_path %><br>
-      <%= link_to "Contact", contact_path %><br>
-    </div>
+    <u><%= link_to "Check your IMT's", tables_path %><br>
+    <u><%= link_to "Contact", contact_path %><br>
+
     <% if current_user %>
       <%= link_to 'Sign Out', destroy_user_session_path,
         method: :delete%><br>
 
     <% else %>
-      <%= link_to 'Sign In', new_user_session_path %><br>
-      <%= link_to 'Sign Up', new_user_registration_path %><br>
+      <u><%= link_to 'Sign In', new_user_session_path %></u><br>
+      <u><%= link_to 'Sign Up', new_user_registration_path %></u><br>
+    </div>
 
     <% end %>
 

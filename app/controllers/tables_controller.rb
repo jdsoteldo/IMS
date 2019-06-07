@@ -44,12 +44,12 @@ class TablesController < ApplicationController
 
 
   def destroy
-    if @tables = Table.where(completed: true)
+    if @table.completed
       @table.destroy
-      redirect_to completed_path, :notice => 'Successfully deleted'
-    elsif @table = Table.where(completed: false)
+      redirect_to completed_path
+    else
       @table.destroy
-      redirect_to table_path, :notice => 'Successfully deleted'
+      redirect_to tables_path
     end
   end
 
