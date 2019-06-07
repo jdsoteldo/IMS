@@ -12,16 +12,16 @@
   <div> <%= table.total_price %> </div>
   <div> <%= table.completed %> </div>
 
-    <%= link_to "Show IMT", table_path(table.id)%><br>
-    <%= link_to 'Update', edit_table_path(table.id) %><br>
-    <%= link_to 'Delete', table_path(table),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %><br>
-
     <%= form_for table do |f| %>
     <%= f.hidden_field :completed, value: true %>
     <%= f.submit "complete",
         data: { confirm: 'Are you really done?'}%><br>
+
+  <%= link_to "Show IMT", table_path(table.id)%><br>
+  <%= link_to 'Update', edit_table_path(table.id) %><br>
+  <%= link_to 'Delete', table_path(table),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %><br>
 <div>------------------------------------------------------------------- </div>
     <% end %>
     <% end %>

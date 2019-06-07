@@ -5,6 +5,11 @@ class TablesController < ApplicationController
     @tables = Table.where(completed: false)
   end
 
+  def completed
+    @tables = Table.where(completed: true)
+  end
+
+
   def new
     @table = Table.new
   end
@@ -22,12 +27,10 @@ class TablesController < ApplicationController
 
 
   def show
-    #@table = Table.find(params[:id])
   end
 
 
   def edit
-    #@table = Table.find(params[:id])
   end
 
 
@@ -41,15 +44,11 @@ class TablesController < ApplicationController
 
 
   def destroy
-    # @table = Table.find(params[:id])
     @table.destroy
 
     redirect_to tables_path, notice: "Template destroyed"
   end
 
-  def completed
-    @table = Table.where(completed: true)
-  end
 
   private
   def table_params
