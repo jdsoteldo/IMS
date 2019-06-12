@@ -1,2 +1,8 @@
+-# - unless action_name == "resgiter"
 .navigation
   %nav.navigation__nav
+    %ul.navigation__list
+      %li.navigation__item
+        =link_to 'Home', home_path, class: 'navigation__link'
+      %li.navigation__item
+        =link_to 'IMT', tables_path, class: 'navigation__link'
