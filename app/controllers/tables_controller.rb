@@ -2,11 +2,11 @@ class TablesController < ApplicationController
   before_action :current, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tables = Table.where(completed: false)
+    @tables = current_user.tables.where(completed: false)
   end
 
   def completed
-    @tables = Table.where(completed: true)
+    @tables = current_user.tables.where(completed: true)
   end
 
 
@@ -18,7 +18,7 @@ class TablesController < ApplicationController
   def create
     @table = Table.new(table_params)
     if @table.save
-      redirect_to tables_path, notice: "Table save successfully!!"
+      redirect_to tables_path
 
     else
       render :new, notice: "Error, try again."
@@ -56,7 +56,7 @@ class TablesController < ApplicationController
 
   private
   def table_params
-    params.require(:table).permit(:product, :description, :qty, :price, :total_price, :completed)
+    params.require(:table).permit(:product, :description, :qty, :price, :total_price, :completed, :user_id)
   end
 
   def current

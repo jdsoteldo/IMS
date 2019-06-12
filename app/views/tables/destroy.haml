@@ -1,0 +1,21 @@
+%h1
+  %u
+    %em
+      Delete
+      %em
+  Inventory Management Template :(
+= form_for @table do |f|
+  = f.label :product
+  = f.text_field :product
+  = f.label :description
+  = f.text_field :description
+  = f.label :qty
+  = f.number_field :qty
+  = f.label :price
+  = f.number_field :price
+  = f.label :total_price
+  = f.number_field :total_price
+  = f.submit,                        |
+    method: :delete                  |
+    data: {confirm: 'Are you sure?'} |
+  = link_to "Main Menu", root_path

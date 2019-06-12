@@ -1,0 +1,41 @@
+%u
+  %h2 Insights
+%ul#product_table
+  %li
+    = "Product:"
+    =  @table.product
+  %br/
+
+  %li
+    = "Description:"
+    = @table.description
+  %br/
+
+  %li
+    = "Quantity:"
+    = @table.qty
+  %br/
+
+  %li
+    = "Unit Price:"
+    = @table.price
+    = "$"
+  %br/
+
+  %li
+    = "Total Price:"
+    = @table.total_price
+    = "$"
+  %br/
+
+  %li
+    = "Completed?"
+    = @table.completed
+  %br/
+  .links
+    - if @table.completed = false
+      = link_to "Edit", edit_table_path
+      %br/
+    = link_to "Go Back", :back
+    %br/
+    = link_to "Main Menu", root_path
