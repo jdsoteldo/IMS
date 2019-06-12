@@ -1,0 +1,23 @@
+.body
+  %h2#home_title= 'IMS'
+%br/
+%br/
+
+%h3 What is IMS?
+%p.ims_home
+  IMS stands for Inventory Managstrongent Syststrong, our goal is to make inventory managstrongent
+  as
+  %strong
+    comfortable easy
+  and enjoyable as
+  %strong
+    possible
+
+.home-links
+  = link_to "Check your IMT's", tables_path, class: 'home-links__link'
+  = link_to "Contact", contact_path, class: 'home-links__link'
+  - if current_user
+    = link_to 'Sign Out', destroy_user_session_path,method: :delete, class: 'home-links__link'
+  - else
+    = link_to 'Sign In', new_user_session_path, class: 'home-links__link'
+    = link_to 'Sign Up', new_user_registration_path, class: 'home-links__link'

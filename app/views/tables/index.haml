@@ -1,0 +1,58 @@
+= link_to "Create", new_table_path
+%br/
+= link_to "Completed IMT", completed_path
+%br/
+= link_to "Main Menu", "home#home"
+%br/
+%br/
+
+- @tables.each do |table|
+  %div
+    = "Product:"
+    = table.product
+  %br/
+
+  %div
+    = "Description:"
+    = table.description
+  %br/
+
+  %div
+    = "Quantity:"
+    = table.qty
+  %br/
+
+  %div
+    = "Unit Price:"
+    = table.price
+    ="$"
+  %br/
+
+  %div
+    = "Total Price:"
+    = table.total_price
+    = "$"
+  %br/
+
+  %div
+    = "Table Completed?"
+    = table.completed
+
+  = form_for table do |f|
+    = f.hidden_field :completed, value: true
+    = f.submit "complete",                     |
+      data: { confirm: 'Are you really done?'} |
+    %br/
+    %br/
+
+  %div.index_links
+    = link_to "Show IMT", table_path(table.id)
+    %br/
+    = link_to 'Update', edit_table_path(table.id)
+    %br/
+    = link_to 'Delete', table_path(table), |
+      method: :delete,                     |
+      data: { confirm: 'Are you sure?' }   |
+    %br/
+    %br/
+    %br/

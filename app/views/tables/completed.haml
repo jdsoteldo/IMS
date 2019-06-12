@@ -1,0 +1,40 @@
+= link_to "Index", tables_path
+%br/
+
+= link_to "Main Menu", "home#home"
+%br/
+%br/
+
+- @tables.each do |table|
+  = "Product:"
+  = table.product
+  %br/
+
+  = "Description:"
+  = table.description
+  %br/
+
+  = "Quantity:"
+  = table.qty
+  %br/
+
+  ="Unit Price:"
+  = table.price
+  ="$"
+
+  %br/
+
+  = "Total Price"
+  = table.total_price
+  ="$"
+  %br/
+
+  = "Completed?"
+  = table.completed
+  %br/
+  = link_to "Show", table_path(table)
+  %br
+  = link_to "Delete", table_path(table),        |
+    method: :delete,                            |
+    data: {confirm: 'Sure you want to delete?'} |
+  %br
