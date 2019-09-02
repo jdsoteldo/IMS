@@ -1,58 +1,64 @@
+
 = link_to "Create", new_table_path
-%br/
+%br
 = link_to "Completed IMT", completed_path
-%br/
-= link_to "Main Menu", "home#home"
-%br/
-%br/
+%br
+= link_to "Main Menu", home_path
+%br
+%br
 
-- @tables.each do |table|
-  %div
-    = "Product:"
-    = table.product
+%p= "Welcome, #{current_user.name}!"
+%br
+
+- if current_user.admin?
+  - @admin_tables.each do |table|
+    %table.mb-3{:border=>'2'}
+      %thead
+        %tr
+          %th User:
+          %th Product:
+          %th Description:
+          %th Quantity:
+          %th Unit Price $
+          %th Total Price $
+          %th Completed?
+      %tbody
+        %tr
+          %td
+          %td= "#{table.product}"
+          %td= "#{table.description}"
+          %td= "#{table.qty}"
+          %td= "#{table.price}"
+          %td= "#{table.total_price}"
+          %td= "#{table.completed}"
+- else
+  - @tables.each do |table|
+    %table
+      %thead
+        %tr
+          %th Product:
+          %th Description:
+          %th Quantity:
+          %th Unit Price $
+          %th Total Price $
+          %th Completed?
+      %tbody
+        %tr
+          %td= "#{table.product}"
+          %td= "#{table.description}"
+          %td= "#{table.qty}"
+          %td= "#{table.price}"
+          %td= "#{table.total_price}"
+          %td= "#{table.completed}"
+
+    = form_for table do |f|
+      = f.hidden_field :completed, value: true
+      = f.submit "complete", data: { confirm: 'Are you really done?'}
   %br/
-
-  %div
-    = "Description:"
-    = table.description
   %br/
-
-  %div
-    = "Quantity:"
-    = table.qty
-  %br/
-
-  %div
-    = "Unit Price:"
-    = table.price
-    ="$"
-  %br/
-
-  %div
-    = "Total Price:"
-    = table.total_price
-    = "$"
-  %br/
-
-  %div
-    = "Table Completed?"
-    = table.completed
-
-  = form_for table do |f|
-    = f.hidden_field :completed, value: true
-    = f.submit "complete",                     |
-      data: { confirm: 'Are you really done?'} |
-    %br/
-    %br/
-
   %div.index_links
-    = link_to "Show IMT", table_path(table.id)
+    = link_to "Show IMT", table_path(table)
     %br/
-    = link_to 'Update', edit_table_path(table.id)
+    = link_to 'Update', edit_table_path(table)
     %br/
-    = link_to 'Delete', table_path(table), |
-      method: :delete,                     |
-      data: { confirm: 'Are you sure?' }   |
-    %br/
-    %br/
-    %br/
+    = link_to 'Delete', table_path(table), method: :delete, data: { confirm: 'Are you sure?'}

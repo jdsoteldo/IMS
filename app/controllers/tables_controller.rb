@@ -2,6 +2,7 @@ class TablesController < ApplicationController
   before_action :current, only: [:show, :edit, :update, :destroy]
 
   def index
+    @admin_tables = Table.all
     @tables = current_user.tables.where(completed: false)
   end
 
@@ -35,9 +36,7 @@ class TablesController < ApplicationController
 
 
   def update
-    # @table = Table.find(params[:id])
     @table.update(table_params)
-
     redirect_to tables_path #cambiar luego para path hacia los inventarios
   end
 
