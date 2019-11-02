@@ -65,7 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 
-gem 'devise', '~> 4.6', '>= 4.6.2' #geme para el login y verificacion del usuario
+gem 'devise', '~> 4.7' #geme para el login y verificacion del usuario
 
 gem 'rolify', '~> 5.2' #add roles to the app (admin and user)
 gem 'cancan'
